@@ -5,7 +5,7 @@ const Menu = (props) =>{
     return(
         <View style={{flex:1,alignItems:'center',marginHorizontal:10}}>
             <TouchableOpacity onPress={props.OnPress}>
-                <View style={{width:140,height:120,borderRadius:14,backgroundColor:'#EEF2FE'}}>
+                <View style={{width:120,height:120,borderRadius:14,backgroundColor:'#EEF2FE'}}>
                     <View style={{marginTop:10,marginHorizontal:17}} >
                         <Image style={{width:60,height:60}} source={props.img}/>
                     </View>

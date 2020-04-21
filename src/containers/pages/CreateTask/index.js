@@ -483,6 +483,7 @@ export default class CreateTask extends Component {
                       />
                     </View>
                   </View>
+                  <View style={{marginBottom:'10%'}}>
                   <TouchableOpacity
                     disabled={taskText === ''}
                     style={[
@@ -513,6 +514,7 @@ export default class CreateTask extends Component {
                       ADD YOUR TASK
                     </Text>
                   </TouchableOpacity>
+                  </View>
                 </ScrollView>
               </View>
             </View>

@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
-import { Icon } from 'react-native-elements'
-import { SliderBox } from "react-native-image-slider-box";
 import Navbar from '../../../components/molecules/Navbar';
 import Information from '../../../components/molecules/Information';
 import Banner from '../../../components/molecules/Banner';
@@ -19,14 +17,21 @@ class Landing extends Component{
         return (
             <View style={{flex:1}}>
                 <ScrollView>
+                        <View style={{position:'relative',justifyContent:'space-between'}}>
+                            <View style={{marginHorizontal:-30}}>
+                                <Image style={{width:540,height:300}}source={require('../../../assets/dokter.png')} />
+                            </View>
+                            <View style={{position:'absolute',marginLeft:150,marginVertical:70}}>
+                                <Text style={{fontSize:20,top:'20%',textAlign:'center',textAlign:'left',paddingVertical:10, color:'white' }}> Hello!</Text>
+                                <Text style={{fontSize:25,top:'15%',textAlign:'center',textAlign:'left',paddingVertical:10, color:'white', fontWeight:'bold' }}> Marcell Antonius</Text>
+                                <Text style={{fontSize:13,top:'5%',textAlign:'center',textAlign:'left',paddingLeft:2,paddingVertical:12, color:'#fafafa' }}> Control your drug consumtion today!</Text>
+                            </View>
+                        </View>
                     <View style={{marginHorizontal:20}}>
-                    <View>
-                        
-                    </View>
-                    <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:10}}>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:10,marginVertical:20}}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
-                                <Image style={{width:35,height:35}}source={require('../../../assets/scan_qr.png')} />
+                                <Image style={{width:35,height:35,marginLeft:20}}source={require('../../../assets/scan_qr.png')} />
                             </View>
                             <View>
                                 <Text style={{fontSize:18,top:'20%',textAlign:'center',paddingHorizontal:15,paddingVertical:10, color:'white' }}> Scan QR</Text>
@@ -34,16 +39,16 @@ class Landing extends Component{
                         </View>
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
-                                <Image style={{width:45,height:35}}source={require('../../../assets/qr_code.png')} />
+                                <Image style={{width:45,height:35,marginLeft:20}}source={require('../../../assets/qr_code.png')} />
                             </View>
                             <View>
                                 <Text style={{fontSize:18,top:'20%',textAlign:'center',paddingHorizontal:15,paddingVertical:10, color:'white' }}> QR Code</Text>
                             </View>
                         </View>
                     </View>
-                    <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:20}}>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fafafa',marginVertical:10}}>
                             <View style={{marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
-                                <Image style={{width:100,height:100}}source={require('../../../assets/face.png')} />
+                                <Image style={{width:100,height:100}}source={require('../../../assets/kalender2.png')} />
                             </View>
                             <View>
                                 <Text style={{fontSize:18,top:'25%',paddingVertical:10, color:'#0B206A' }}>Ready for You!</Text>
@@ -58,14 +63,14 @@ class Landing extends Component{
                             <Information OnPress={() => navigate('')} tittle='Corona' img={require('../../../assets/corona.png')}/>
                         </ScrollView>
                     </View>
-                    <View>
+                    <View style={{marginVertical:20}}>
                         <Separator />
-                        <Text style={{color:'#0B206A',fontSize:18}} >Healty Guide</Text>
+                        <Text style={{color:'#0B206A',fontSize:18,paddingTop:'5%',fontWeight:'bold'}} >Healty Guide</Text>
                     </View>
                     <View>
-                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Attention"desc="Quarantime During Covid-19!" img={require('../../../assets/banner1.jpg')}/>
-                   
+                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Attention"desc="Stop the spread! #StayatHome" img={require('../../../assets/corona_banner.jpg')}/>
                         <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Mark the Calendar"desc="Dont worry, just scan and mark" img={require('../../../assets/cal_banner.jpg')}/>
+                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Attention"desc="Quarantime During Covid-19!" img={require('../../../assets/banner1.jpg')}/>
                      
                     </View> 
                     </View>
