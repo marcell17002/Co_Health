@@ -8,6 +8,12 @@ function Separator() {
         borderBottomColor: '#737373',
         borderBottomWidth: StyleSheet.hairlineWidth,}} />;
   }
+  function Separator1() {
+    return <View style={{
+        marginHorizontal: 8,
+        borderBottomColor: '#737373',
+        borderRightWidth:StyleSheet.hairlineWidth,}} />;
+  }
 class Profile extends Component{
     render(){
         const { navigate } = this.props.navigation;
@@ -16,42 +22,60 @@ class Profile extends Component{
             <View style={{flex:1}}>
                 <ScrollView style={{marginHorizontal:15}}>
                     <View style={{marginHorizontal:15}}>
-                        <View>
-                            <Text style={{fontSize:17,marginTop:'2%',color:'Black',textAlign:'center',fontWeight:'bold'}}>Free Account</Text>
-                            <View style={{marginLeft:'20%',marginTop:'2%',backgroundColor:'#6B8BFF',height:40,width:200,borderRadius:25}}>
-                                <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}> PREMIUM</Text>
+                        <View style={{flexDirection:'row',marginTop:'5%'}}>
+                            <View style={{borderRadius:25}}>
+                                <Image style={{width: 100, height: 100, resizeMode:'contain',flex:1,borderRadius:180}} source={require('../../../assets/profile.jpg')} />
+                            </View>
+                            <View style={{marginLeft:'7%',marginVertical:15}}>
+                            <Text style={{fontSize:17,marginTop:'2%',textAlign:'left',fontWeight:'bold',color:'#092652'}}>Marcell Antonius</Text>
+                            <View style={{backgroundColor:'#6B8BFF',height:25,width:85,borderRadius:25,marginTop:'5%'}}>
+                                <Text style={{fontSize:14,top:2,left:2,textAlign:'left',color:'white'}}  onPress={() => navigate('EditProfile')}> Edit Profile</Text>
+                            </View>
                             </View>
                         </View>
-                        <View style={{flexDirection:'row',marginTop:'8%'}}>
+                        <View style={{marginTop:'7%'}}>
+                        <View style={{flexDirection:'row'}}>
                             <View>
-                                {/* <Image style={{width:50,height:50,borderRadius:50/2}}source={require('../../../assets/pizza1.jpg')}/> */}
+                                <Image style={{width: 25, height: 25, resizeMode:'contain'}} source={require('../../../assets/phone-profile.png')} />
                             </View>
-                            <View style={{marginLeft:'5%'}}>
-                                <Text style={{fontSize:15,color:'black',fontWeight:'700'}}>Marcell Antonius</Text>
-                                <Text style={{fontSize:15,color:'black',fontWeight:'400'}}>+62 895401011469</Text>
+                            <Text style={{fontSize:14,color:'#a6a6a6',top:'1%',paddingLeft:'3%'}}> +62 895401011469</Text>
+                        </View>
+                        <View style={{flexDirection:'row',marginTop:'4%',marginBottom:'5%'}}>
+                            <View >
+                                <Image style={{width: 25, height: 25, resizeMode:'contain'}} source={require('../../../assets/email.png')} />
                             </View>
-                            <View style={{backgroundColor:'#F20C94',marginLeft:'22%',width:50,height:30,borderRadius:25}}>
-                                <Text style={{color:'white',paddingHorizontal:12,paddingVertical:5}} onPress={()=> navigate('')}>Edit</Text> 
+                            <Text style={{fontSize:14,color:'#a6a6a6',paddingLeft:'3%'}}> marcellantonius@gmail.com</Text>
+                        </View>
+                        </View>
+                        <Separator/>
+
+                        <View style={{flexDirection:'row',position:'relative',alignItems:'center',marginTop:'12%',marginBottom:'12%',marginHorizontal:'20%',alignContent:'center'}}>
+                            <View style={{position: 'absolute'}}>
+                                <Text style={{fontSize:23,fontWeight:'bold',color:'#092652',textAlign:'center'}}>180</Text>
+                                <Text style={{fontSize:14,top:'2%',fontWeight:'500',color:'#092652',textAlign:'center'}}>Checks</Text>
+                            </View>
+                            <Separator1/>
+                            <View style={{marginLeft:'60%',position:'absolute'}}>
+                                <View style={{alignItems:'center'}}>
+                                    <Image style={{width:32,height:32}}source={require('../../../assets/qr_code.png')} />
+                                </View>
+                                <Text  style={{fontSize:14,top:'2%',fontWeight:'500',color:'#092652',textAlign:'center'}}>QR Code</Text>
                             </View>
                         </View>
-                        <View style={{marginTop:'10%'}}>
-                            <Text style={{fontSize:18,fontWeight:'bold'}}>Properties</Text>
+                        <Separator/>
+
+                        <View style={{marginTop:'2%'}}>
                             <View>
-                                <Properties title="Kode Promo" img={require('../../../assets/icon-order.png')} />
-                                <Separator/>
-                                <Properties title="Keuntungan Mu" img={require('../../../assets/icon-order.png')} />
-                                <Separator/>
-                                <Properties title="Panduan " img={require('../../../assets/icon-order.png')} />
+                                <Properties title="History " img={require('../../../assets/icon-order.png')} />
                                 <Separator/>
                                 <Properties title="Syarat dan Ketentuan" img={require('../../../assets/icon-order.png')} />
                                 <Separator/>
                                 <Properties title="Pusat Bantuan" img={require('../../../assets/icon-order.png')} />
-                                <Separator/>
                             </View>
                         </View>
-                        
-                        <View style={{marginHorizontal:'15%',marginTop:'15%',backgroundColor:'#FCB11C',height:40,width:240,borderRadius:25}}>
-                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}  onPress={() => navigate('')}> Sign Out</Text>
+                        <Separator />
+                        <View style={{marginHorizontal:'15%',marginTop:'10%',backgroundColor:'#6B8BFF',height:40,width:240,borderRadius:25}}>
+                            <Text style={{fontSize:17,top:7,textAlign:'center',color:'white'}}  onPress={() => navigate('')}> Log Out</Text>
                         </View>
                     </View>
                 </ScrollView>
@@ -65,3 +89,5 @@ class Profile extends Component{
     }
 }
 export default Profile;
+
+

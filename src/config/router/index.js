@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Calendara, CreateTask , Landing , Profile}  from '../../containers/pages/';
+import { Calendara, CreateTask , Landing , Profile, EditProfile}  from '../../containers/pages/';
 
 
 const HomeStack = createStackNavigator();
@@ -21,8 +21,8 @@ function HomeStackScreen () {
 function CalendarStackScreen () {
   return(
   <CalendarStack.Navigator screenOptions={{gestureEnabled: false }} >
-    <HomeStack.Screen name="Calendar" component={Calendara}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
-    <HomeStack.Screen name="CreateTask" component={CreateTask}/>
+    <CalendarStack.Screen name="Calendar" component={Calendara}/>
+    <CalendarStack.Screen name="CreateTask" component={CreateTask}/>
   </CalendarStack.Navigator>
   );
 }
@@ -30,7 +30,8 @@ function CalendarStackScreen () {
 function ProfileStackScreen () {
   return(
   <ProfileStack.Navigator screenOptions={{gestureEnabled: false }} >
-    <HomeStack.Screen name="Profile" component={Profile}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+    <ProfileStack.Screen name="Profile" component={Profile}/>
+    <ProfileStack.Screen name="EditProfile" component={EditProfile}/>
   </ProfileStack.Navigator>
   );
 }
