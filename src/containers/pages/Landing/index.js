@@ -29,6 +29,7 @@ class Landing extends Component{
                         </View>
                     <View style={{marginHorizontal:20}}>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginHorizontal:10,marginVertical:20}}>
+                        <TouchableOpacity onPress={() => navigate('Scan_qr')}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
                                 <Image style={{width:35,height:35,marginLeft:20}}source={require('../../../assets/scan_qr.png')} />
@@ -37,6 +38,7 @@ class Landing extends Component{
                                 <Text style={{fontSize:18,top:'20%',textAlign:'center',paddingHorizontal:15,paddingVertical:10, color:'white' }}> Scan QR</Text>
                             </View>
                         </View>
+                        </TouchableOpacity>
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
                                 <Image style={{width:45,height:35,marginLeft:20}}source={require('../../../assets/qr_code.png')} />

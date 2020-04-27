@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Calendara, CreateTask , Landing , Profile, EditProfile, Login, Register}  from '../../containers/pages/';
+import { Calendara, CreateTask , Landing , Profile, EditProfile, Login, Register, Scan_qr}  from '../../containers/pages/';
 
 
 const HomeStack = createStackNavigator();
@@ -23,6 +23,7 @@ function HomeStackScreen () {
   return(
   <HomeStack.Navigator screenOptions={{gestureEnabled: false }} >
     <HomeStack.Screen name="Landing" component={Landing}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+    <HomeStack.Screen name="Scan_qr" component={Scan_qr} />
   </HomeStack.Navigator>
   );
 }
