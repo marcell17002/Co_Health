@@ -27,9 +27,9 @@ class Profile extends Component{
                                 <Image style={{width: 100, height: 100, resizeMode:'contain',flex:1,borderRadius:180}} source={require('../../../assets/profile.jpg')} />
                             </View>
                             <View style={{marginLeft:'7%',marginVertical:15}}>
-                            <Text style={{fontSize:17,marginTop:'2%',textAlign:'left',fontWeight:'bold',color:'#092652'}}>Marcell Antonius</Text>
+                            <Text style={{fontSize:20,marginTop:'2%',textAlign:'left',fontWeight:'bold',color:'#092652'}}>Marcell Antonius</Text>
                             <View style={{backgroundColor:'#6B8BFF',height:25,width:85,borderRadius:25,marginTop:'5%'}}>
-                                <Text style={{fontSize:14,top:2,left:2,textAlign:'left',color:'white'}}  onPress={() => navigate('EditProfile')}> Edit Profile</Text>
+                                <Text style={{fontSize:14,top:'10%',textAlign:'center',color:'white'}}  onPress={() => navigate('EditProfile')}> Edit Profile</Text>
                             </View>
                             </View>
                         </View>
@@ -51,15 +51,15 @@ class Profile extends Component{
 
                         <View style={{flexDirection:'row',position:'relative',alignItems:'center',marginTop:'12%',marginBottom:'12%',marginHorizontal:'20%',alignContent:'center'}}>
                             <View style={{position: 'absolute'}}>
-                                <Text style={{fontSize:23,fontWeight:'bold',color:'#092652',textAlign:'center'}}>180</Text>
-                                <Text style={{fontSize:14,top:'2%',fontWeight:'500',color:'#092652',textAlign:'center'}}>Checks</Text>
+                                <Text style={{fontSize:30,fontWeight:'bold',color:'#092652',textAlign:'center'}}>180</Text>
+                                <Text style={{fontSize:19,top:'10%',fontWeight:'500',color:'#092652',textAlign:'center'}}>Checks</Text>
                             </View>
                             <Separator1/>
-                            <View style={{marginLeft:'60%',position:'absolute'}}>
+                            <View style={{marginLeft:'70%',position:'absolute'}}>
                                 <View style={{alignItems:'center'}}>
-                                    <Image style={{width:32,height:32}}source={require('../../../assets/qr_code.png')} />
+                                    <Image style={{width:40,height:40}}source={require('../../../assets/qr_code.png')} />
                                 </View>
-                                <Text  style={{fontSize:14,top:'2%',fontWeight:'500',color:'#092652',textAlign:'center'}}>QR Code</Text>
+                                <Text  style={{fontSize:19,top:'2%',fontWeight:'500',color:'#092652',textAlign:'center'}}>QR Code</Text>
                             </View>
                         </View>
                         <Separator/>

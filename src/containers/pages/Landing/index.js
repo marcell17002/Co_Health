@@ -18,10 +18,10 @@ class Landing extends Component{
             <View style={{flex:1}}>
                 <ScrollView>
                         <View style={{position:'relative',justifyContent:'space-between'}}>
-                            <View style={{marginHorizontal:-30}}>
-                                <Image style={{width:540,height:300}}source={require('../../../assets/dokter.png')} />
+                            <View style={{marginHorizontal:'-8%'}}>
+                                <Image style={{width:570,height:310}}source={require('../../../assets/dokter.png')} />
                             </View>
-                            <View style={{position:'absolute',marginLeft:150,marginVertical:70}}>
+                            <View style={{position:'absolute',marginLeft:'40%',marginVertical:70,position:'absolute'}}>
                                 <Text style={{fontSize:20,top:'20%',textAlign:'center',textAlign:'left',paddingVertical:10, color:'white' }}> Hello!</Text>
                                 <Text style={{fontSize:25,top:'15%',textAlign:'center',textAlign:'left',paddingVertical:10, color:'white', fontWeight:'bold' }}> Marcell Antonius</Text>
                                 <Text style={{fontSize:13,top:'5%',textAlign:'center',textAlign:'left',paddingLeft:2,paddingVertical:12, color:'#fafafa' }}> Control your drug consumtion today!</Text>
@@ -46,13 +46,13 @@ class Landing extends Component{
                             </View>
                         </View>
                     </View>
-                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fafafa',marginVertical:10}}>
+                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fafafa',marginVertical:10,borderRadius:15}}>
                             <View style={{marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
                                 <Image style={{width:100,height:100}}source={require('../../../assets/kalender2.png')} />
                             </View>
-                            <View>
-                                <Text style={{fontSize:18,top:'25%',paddingVertical:10, color:'#0B206A' }}>Ready for You!</Text>
-                                <Text style={{fontSize:15,top:'15%',paddingVertical:10, color:'#6e6f72'}}>Control your daily drug health</Text>
+                            <View style={{position:'absolute',marginLeft:'42%',paddingTop:'5%'}}>
+                                <Text style={{fontSize:23,top:'10%',paddingVertical:10, color:'#0B206A' }}>Ready for You!</Text>
+                                <Text style={{fontSize:18,paddingVertical:10, color:'#6e6f72'}}>Control your daily drug health</Text>
                             </View>
                         </View>
                     <View style={{marginVertical:15}}>

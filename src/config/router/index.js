@@ -2,14 +2,23 @@ import React, { Component } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Calendara, CreateTask , Landing , Profile, EditProfile}  from '../../containers/pages/';
+import { Calendara, CreateTask , Landing , Profile, EditProfile, Login, Register}  from '../../containers/pages/';
 
 
 const HomeStack = createStackNavigator();
+const PreStack = createStackNavigator();
 const CalendarStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const Stack = createStackNavigator();
 
+function PreStackScreen () {
+  return(
+  <PreStack.Navigator screenOptions={{gestureEnabled: false }} >
+    <PreStack.Screen name="Login" component={Login}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+    <PreStack.Screen name="Register" component={Register}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
+ </PreStack.Navigator>
+  );
+}
 function HomeStackScreen () {
   return(
   <HomeStack.Navigator screenOptions={{gestureEnabled: false }} >
@@ -40,6 +49,7 @@ function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="PreStackScreen" component={PreStackScreen}/>
         <Stack.Screen name="HomeStackScreen" component={HomeStackScreen}/>
         <Stack.Screen name="ProfileStackScreen" component={ProfileStackScreen}/>
         <Stack.Screen name="CalendarStackScreen" component={CalendarStackScreen}/>
