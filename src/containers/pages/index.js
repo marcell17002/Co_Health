@@ -6,6 +6,7 @@ import EditProfile from './EditProfile';
 import Login from './Login';
 import Register from './Register';
 import Scan_qr from './Scan_qr';
+import Intro from './Intro';
 
 export{
     Landing,
@@ -15,5 +16,6 @@ export{
     EditProfile,
     Login,
     Register,
-    Scan_qr
+    Scan_qr,
+    Intro,
 }

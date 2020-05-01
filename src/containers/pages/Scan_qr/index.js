@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
-import { RNCamera } from 'react-native-camera';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 function Separator() {
     return <View style={{
@@ -8,42 +8,37 @@ function Separator() {
         borderBottomColor: '#737373',
         borderBottomWidth: StyleSheet.hairlineWidth,}} />;
   }
-class Scan_qr extends Component{
-    state={
-        barcode: ''
-    }
-    render(){
-        const { navigate } = this.props.navigation;
+export default function Scan_qr() {
+         const [hasPermission, setHasPermission] = useState(null);
+        const [scanned, setScanned] = useState(false);
+
+        useEffect(() => {
+            (async () => {
+            const { status } = await BarCodeScanner.requestPermissionsAsync();
+            setHasPermission(status === 'granted');
+            })();
+        }, []);
+
+        const handleBarCodeScanned = ({ type, data }) => {
+            setScanned(true);
+            alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+        };
+
+        if (hasPermission === null) {
+            return <Text>Requesting for camera permission</Text>;
+        }
+        if (hasPermission === false) {
+            return <Text>No access to camera</Text>;
+        }
         return (
             <View style={{flex:1}}>
-                <View style={{flex:1}}>
-                    <RNCamera 
-                        ref={ref => {
-                            this.camera = ref;
-                        }}
-                        style={{width:'100%',height:'100%',top:0,left:0,flex:1,justifyContent:'flex-end',alignItems:'center'}}
-                        type={RNCamera.Constants.Type.back}
-                        flashMode={RNCamera.Constants.FlashMode.on}
-                        androidCameraPermissionOptions={{
-                            title: 'Permission to use camera',
-                            message: 'We need your permission to use your camera',
-                            buttonPositive: 'Ok',
-                            buttonNegative: 'Cancel',
-                            
-                        }}
-                        androidRecordAudioPermissionOptions={{
-                            title: 'Permission to use audio recording',
-                            message: 'We need your permission to use your audio',
-                            buttonPositive: 'Ok',
-                            buttonNegative: 'Cancel',
-                        }}
-                        onBarCodeRead={(barcode) => {
-                            console.log(barcode);
-                            this.setState({
-                                barcode: barcode
-                            })
-                        }}
-                    />
+                <View style={{flex:1,width:'100%'}}>
+                <BarCodeScanner 
+                    onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
+                    style={StyleSheet.absoluteFillObject}
+                />
+
+                {scanned && <Button title={'Tap to Scan Again'} onPress={() => setScanned(false)} />}
                 </View>
                 <View style={{height:220,backgroundColor:'white'}}>
                     <View style={{marginHorizontal:20}}>
@@ -55,7 +50,7 @@ class Scan_qr extends Component{
                     <Text style={{fontSize:23,color:'black',marginBottom:10}}>Scan QR-Code </Text>
                     <View style={{flexDirection:'row',alignItems:'flex-start'}}>
                         <View style={{width:150,paddingVertical:35,paddingLeft:12}}>
-                        <Text style={{fontSize:18,color:'#6B8BFF',fontWeight:'bold'}}>{`Waiting... ${this.state.barcode}`}</Text>
+                        <Text style={{fontSize:18,color:'#6B8BFF',fontWeight:'bold'}}>Waiting...</Text>
                         </View>
                         <View style={{height:120,width:1,backgroundColor:'grey'}}/>
                         <View style={{flex:1,paddingLeft:12,paddingVertical:15}}>
@@ -67,7 +62,6 @@ class Scan_qr extends Component{
             </View>
         )
     }
-}
-export default Scan_qr;
+
 
 

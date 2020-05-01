@@ -49,7 +49,7 @@ class Profile extends Component{
                         </View>
                         <Separator/>
 
-                        <View style={{flexDirection:'row',position:'relative',alignItems:'center',marginTop:'12%',marginBottom:'12%',marginHorizontal:'20%',alignContent:'center'}}>
+                        <View style={{flexDirection:'row',position:'relative',alignItems:'center',marginTop:'12%',marginBottom:'15%',marginHorizontal:'20%',alignContent:'center'}}>
                             <View style={{position: 'absolute'}}>
                                 <Text style={{fontSize:30,fontWeight:'bold',color:'#092652',textAlign:'center'}}>180</Text>
                                 <Text style={{fontSize:19,top:'10%',fontWeight:'500',color:'#092652',textAlign:'center'}}>Checks</Text>
@@ -64,7 +64,7 @@ class Profile extends Component{
                         </View>
                         <Separator/>
 
-                        <View style={{marginTop:'2%'}}>
+                        <View style={{marginTop:'4%'}}>
                             <View>
                                 <Properties title="History " img={require('../../../assets/icon-order.png')} />
                                 <Separator/>

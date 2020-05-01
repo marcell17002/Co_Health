@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Calendara, CreateTask , Landing , Profile, EditProfile, Login, Register, Scan_qr}  from '../../containers/pages/';
+import { Calendara, CreateTask , Landing , Profile, EditProfile, Login, Register, Scan_qr,Intro}  from '../../containers/pages/';
 
 
 const HomeStack = createStackNavigator();
@@ -14,6 +14,7 @@ const Stack = createStackNavigator();
 function PreStackScreen () {
   return(
   <PreStack.Navigator screenOptions={{gestureEnabled: false }} >
+    {/* <PreStack.Screen name="Intro" component={Intro}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/> */}
     <PreStack.Screen name="Login" component={Login}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
     <PreStack.Screen name="Register" component={Register}  headerMode = 'none' screenOptions={{headerShown: false ,gestureEnabled: false }}/>
  </PreStack.Navigator>
