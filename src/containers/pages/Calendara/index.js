@@ -164,7 +164,7 @@ class Calendara extends Component {
     isDateTimePickerVisible: false,
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._handleDeletePreviousDayTask();
   }
 

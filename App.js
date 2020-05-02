@@ -6,7 +6,7 @@ import TodoStore from './src/data/TodoStore';
 
 
 export default class App extends Component {
-  async componentWillMount() {
+  async UNSAFE_componentWillMount() {
     await this._askForCalendarPermissions();
     await this._askForReminderPermissions();
   }

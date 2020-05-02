@@ -147,7 +147,7 @@ export default class CreateTask extends Component {
     createEventAsyncRes: '',
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       this._keyboardDidShow
