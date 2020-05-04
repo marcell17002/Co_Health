@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
+import {ToastAndroid,Text,StyleSheet, View, Image, ScrollView } from 'react-native';
 import Navbar from '../../../components/molecules/Navbar';
 import Information from '../../../components/molecules/Information';
 import Banner from '../../../components/molecules/Banner';
@@ -11,11 +11,20 @@ function Separator() {
         borderBottomWidth: StyleSheet.hairlineWidth,}} />;
   }
 class Landing extends Component{
-   
+    _toastWithDurationGravityOffsetHandler=()=>{
+        //function to make Toast With Duration, Gravity And Offset
+         ToastAndroid.showWithGravityAndOffset(
+          'Cooming Soon!',
+          ToastAndroid.LONG, //can be SHORT, LONG
+          ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+          25, //xOffset
+          50 //yOffset
+        );
+      }
     render(){
         const { navigate } = this.props.navigation;
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor:'#ededed'}}>
                 <ScrollView>
                         <View style={{position:'relative',justifyContent:'space-between'}}>
                             <View style={{marginHorizontal:'-8%'}}>
@@ -32,21 +41,23 @@ class Landing extends Component{
                         <TouchableOpacity onPress={() => navigate('Scan_qr')}>
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
-                                <Image style={{width:35,height:35,marginLeft:20}}source={require('../../../assets/scan_qr.png')} />
+                                <Image style={{width:35,height:35,marginLeft:20}}source={require('../../../assets/scanner.png')} />
                             </View>
                             <View>
                                 <Text style={{fontSize:18,top:'20%',textAlign:'center',paddingHorizontal:15,paddingVertical:10, color:'white' }}> Scan QR</Text>
                             </View>
                         </View>
                         </TouchableOpacity>
+                        <TouchableOpacity onPress={this._toastWithDurationGravityOffsetHandler} >
                         <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#6B8BFF',borderRadius:15}}>
                             <View style={{width:35,marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
-                                <Image style={{width:45,height:35,marginLeft:20}}source={require('../../../assets/qr_code.png')} />
+                                <Image style={{width:45,height:35,marginLeft:20}}source={require('../../../assets/qr.png')} />
                             </View>
                             <View>
                                 <Text style={{fontSize:18,top:'20%',textAlign:'center',paddingHorizontal:15,paddingVertical:10, color:'white' }}> QR Code</Text>
                             </View>
                         </View>
+                        </TouchableOpacity>
                     </View>
                     <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fafafa',marginVertical:10,borderRadius:15}}>
                             <View style={{marginVertical:20,marginLeft:'5%',alignItems:'center'}}>
@@ -59,28 +70,28 @@ class Landing extends Component{
                         </View>
                     <View style={{marginVertical:15}}>
                         <ScrollView horizontal style={{flexDirection:'row'}}>
-                            <Information OnPress={() => navigate('')} tittle='Call Emergency' img={require('../../../assets/phone.png')}/>
-                            <Information OnPress={() => navigate('')} tittle='Medicine' img={require('../../../assets/drug.png')}/>
-                            <Information OnPress={() => navigate('')} tittle='Injection' img={require('../../../assets/injection.png')}/>
-                            <Information OnPress={() => navigate('')} tittle='Corona' img={require('../../../assets/corona.png')}/>
+                            <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Call Emergency' img={require('../../../assets/phone.png')}/>
+                            <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Medicine' img={require('../../../assets/drug.png')}/>
+                            <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Injection' img={require('../../../assets/injection.png')}/>
+                            <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Corona' img={require('../../../assets/corona.png')}/>
                         </ScrollView>
                     </View>
-                    <View style={{marginVertical:20}}>
+                    <View style={{marginVertical:15}}>
                         <Separator />
                         <Text style={{color:'#0B206A',fontSize:18,paddingTop:'5%',fontWeight:'bold'}} >Healty Guide</Text>
                     </View>
                     <View>
-                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Attention"desc="Stop the spread! #StayatHome" img={require('../../../assets/corona_banner.jpg')}/>
-                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Mark the Calendar"desc="Dont worry, just scan and mark" img={require('../../../assets/cal_banner.jpg')}/>
-                        <Banner OnPress={() => navigate('')} OnPress_button={() => navigate('')} tittle="Attention"desc="Quarantime During Covid-19!" img={require('../../../assets/banner1.jpg')}/>
+                        <Banner  OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Attention"desc="Stop the spread! #StayatHome" img={require('../../../assets/corona_banner.jpg')}/>
+                        <Banner  OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Mark the Calendar"desc="Dont worry, just scan and mark" img={require('../../../assets/cal_banner.jpg')}/>
+                        <Banner  OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Attention"desc="Quarantime During Covid-19!" img={require('../../../assets/banner1.jpg')}/>
                      
                     </View> 
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
-                    <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/home.png')}/>
+                    <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Calendar' img={require('../../../assets/icon-order.png')}/>
+                    <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/profil-pasif.png')}/>
                 </View>
             </View>
         )

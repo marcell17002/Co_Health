@@ -777,9 +777,9 @@ class Calendara extends Component {
               </View>
             </View>
             <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
-                <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/home-pasif.png')}/>
+                <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Calendar' img={require('../../../assets/icon-orders-active.png')}/>
+                <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/profil-pasif.png')}/>
             </View>
             
           </>

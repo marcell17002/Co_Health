@@ -1,7 +1,9 @@
 import React from 'react';
-import {View, Image, Text} from 'react-native';
+import {TouchableOpacity,View, Image, Text} from 'react-native';
 const Properties = (props) =>{
     return(
+        
+        <TouchableOpacity onPress={props.OnPress}>
         <View style={{flexDirection:'row',position:'relative',marginTop:'5%'}}>
             <View>
                 <Image style={{width:25,height:25}}source={props.img}/>
@@ -11,6 +13,7 @@ const Properties = (props) =>{
                 <Text style={{fontSize:18,color:'black',fontWeight:'bold'}}>></Text>
             </View>
         </View>
+        </TouchableOpacity>
     )
 }
 export default Properties;

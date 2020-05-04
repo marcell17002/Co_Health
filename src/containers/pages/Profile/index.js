@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text,StyleSheet, View, Image, ScrollView } from 'react-native';
+import {ToastAndroid,Text,StyleSheet, View, Image, ScrollView } from 'react-native';
 import Navbar from '../../../components/molecules/Navbar';
 import Properties from '../../../components/molecules/Properties';
 function Separator() {
@@ -15,11 +15,21 @@ function Separator() {
         borderRightWidth:StyleSheet.hairlineWidth,}} />;
   }
 class Profile extends Component{
+    _toastWithDurationGravityOffsetHandler=()=>{
+        //function to make Toast With Duration, Gravity And Offset
+         ToastAndroid.showWithGravityAndOffset(
+          'Cooming Soon!',
+          ToastAndroid.LONG, //can be SHORT, LONG
+          ToastAndroid.BOTTOM, //can be TOP, BOTTON, CENTER
+          25, //xOffset
+          50 //yOffset
+        );
+      }
     render(){
         const { navigate } = this.props.navigation;
         
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor:'#ededed'}}>
                 <ScrollView style={{marginHorizontal:15}}>
                     <View style={{marginHorizontal:15}}>
                         <View style={{flexDirection:'row',marginTop:'5%'}}>
@@ -33,18 +43,18 @@ class Profile extends Component{
                             </View>
                             </View>
                         </View>
-                        <View style={{marginTop:'7%'}}>
+                        <View style={{marginTop:'3%'}}>
                         <View style={{flexDirection:'row'}}>
                             <View>
-                                <Image style={{width: 25, height: 25, resizeMode:'contain'}} source={require('../../../assets/phone-profile.png')} />
+                                <Image style={{width: 40, height: 40, resizeMode:'contain'}} source={require('../../../assets/telp.png')} />
                             </View>
-                            <Text style={{fontSize:14,color:'#a6a6a6',top:'1%',paddingLeft:'3%'}}> +62 895401011469</Text>
+                            <Text style={{fontSize:14,color:'#a6a6a6',top:'2%',paddingLeft:'3%'}}> +62 895401011469</Text>
                         </View>
-                        <View style={{flexDirection:'row',marginTop:'4%',marginBottom:'5%'}}>
+                        <View style={{flexDirection:'row',marginTop:'1%',marginBottom:'3%'}}>
                             <View >
-                                <Image style={{width: 25, height: 25, resizeMode:'contain'}} source={require('../../../assets/email.png')} />
+                                <Image style={{width: 40, height: 40, resizeMode:'contain'}} source={require('../../../assets/gmail.png')} />
                             </View>
-                            <Text style={{fontSize:14,color:'#a6a6a6',paddingLeft:'3%'}}> marcellantonius@gmail.com</Text>
+                            <Text style={{fontSize:14,color:'#a6a6a6',top:'2%',paddingLeft:'3%'}}> marcellantonius@gmail.com</Text>
                         </View>
                         </View>
                         <Separator/>
@@ -66,11 +76,11 @@ class Profile extends Component{
 
                         <View style={{marginTop:'4%'}}>
                             <View>
-                                <Properties title="History " img={require('../../../assets/icon-order.png')} />
+                                <Properties OnPress={this._toastWithDurationGravityOffsetHandler} title="History " img={require('../../../assets/historiii.png')} />
                                 <Separator/>
-                                <Properties title="Syarat dan Ketentuan" img={require('../../../assets/icon-order.png')} />
+                                <Properties OnPress={this._toastWithDurationGravityOffsetHandler} title="Syarat dan Ketentuan" img={require('../../../assets/histori.png')} />
                                 <Separator/>
-                                <Properties title="Pusat Bantuan" img={require('../../../assets/icon-order.png')} />
+                                <Properties OnPress={this._toastWithDurationGravityOffsetHandler} title="Pusat Bantuan" img={require('../../../assets/bantuan.png')} />
                             </View>
                         </View>
                         <Separator />
@@ -80,9 +90,9 @@ class Profile extends Component{
                     </View>
                 </ScrollView>
                 <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                    <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/icon-home-active.png')}/>
-                    <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Orders' img={require('../../../assets/icon-order.png')}/>
-                    <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/icon-account.png')}/>
+                    <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/home-pasif.png')}/>
+                    <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Calendar' img={require('../../../assets/icon-order.png')}/>
+                    <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/profil.png')}/>
                 </View>
             </View>
         )
