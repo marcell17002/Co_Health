@@ -9,7 +9,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/co_healt.png",
+    "icon": "./assets/logo.png",
     "splash": {
       "image": "./assets/co_healt.png",
       "resizeMode": "contain",
@@ -17,6 +17,9 @@
     },
     "updates": {
       "fallbackToCacheTimeout": 0
+    },
+    "android": {
+      "package": "com.delphijuara.cohealth"
     },
     "assetBundlePatterns": [
       "**/*"
