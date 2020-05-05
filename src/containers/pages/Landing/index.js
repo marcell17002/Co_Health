@@ -29,7 +29,7 @@ class Landing extends Component {
         <ScrollView>
           <View style={{ position: 'relative', justifyContent: 'space-between' }}>
             <View style={{ marginHorizontal: '-8%' }}>
-              <Image style={{ width: 570, height: 310 }} source={require('../../../assets/dokter.png')} />
+              <Image style={{ width: 570, height: 410 }} source={require('../../../assets/dokter.png')} />
             </View>
             <View style={{ position: 'absolute', marginLeft: '40%', marginVertical: 70, position: 'absolute' }}>
               <Text style={{ fontSize: 20, top: '20%', textAlign: 'center', textAlign: 'left', paddingVertical: 10, color: 'white' }}> Hello!</Text>
