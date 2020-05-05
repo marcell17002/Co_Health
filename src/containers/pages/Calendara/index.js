@@ -577,8 +577,7 @@ class Calendara extends Component {
             )}
             <View
               style={{
-                flex: 1,
-                paddingTop: Constants.statusBarHeight,
+                flex: 1
               }}
             >
               <CalendarStrip
