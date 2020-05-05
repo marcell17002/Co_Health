@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ToastAndroid, Text, StyleSheet, View, Image, ScrollView } from 'react-native';
+import { ToastAndroid, Text, StyleSheet, View, Image, ScrollView, Linking} from 'react-native';
 import Navbar from '../../../components/molecules/Navbar';
 import Information from '../../../components/molecules/Information';
 import Banner from '../../../components/molecules/Banner';
@@ -12,6 +12,19 @@ function Separator() {
   }} />;
 }
 class Landing extends Component {
+  handlePress = async (url) => {
+    // Checking if the link is supported for links with custom URL scheme.
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  };
+
   _toastWithDurationGravityOffsetHandler = () => {
     //function to make Toast With Duration, Gravity And Offset
     ToastAndroid.showWithGravityAndOffset(
@@ -32,9 +45,9 @@ class Landing extends Component {
               <Image style={{ width: 570, height: 410 }} source={require('../../../assets/dokter.png')} />
             </View>
             <View style={{ position: 'absolute', marginLeft: '40%', marginVertical: 70, position: 'absolute' }}>
-              <Text style={{ fontSize: 20, top: '20%', textAlign: 'center', textAlign: 'left', paddingVertical: 10, color: 'white' }}> Hello!</Text>
+              <Text style={{ fontSize: 20, top: '20%', textAlign: 'center', textAlign: 'left', paddingVertical: 10, color: 'white' }}> Halo!</Text>
               <Text style={{ fontSize: 25, top: '15%', textAlign: 'center', textAlign: 'left', paddingVertical: 10, color: 'white', fontWeight: 'bold' }}> Marcell Antonius</Text>
-              <Text style={{ fontSize: 13, top: '5%', textAlign: 'center', textAlign: 'left', paddingLeft: 2, paddingVertical: 12, color: '#fafafa' }}> Control your drug consumtion today!</Text>
+              <Text style={{ fontSize: 13, top: '5%', textAlign: 'center', textAlign: 'left', paddingLeft: 2, paddingVertical: 12, color: '#fafafa' }}> Kontrol konsumsi obatmu sekarang!</Text>
             </View>
           </View>
           <View style={{ marginHorizontal: 20 }}>
@@ -71,10 +84,9 @@ class Landing extends Component {
             </View>
             <View style={{ marginVertical: 15 }}>
               <ScrollView horizontal style={{ flexDirection: 'row' }}>
-                <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Call Emergency' img={require('../../../assets/phone.png')} />
-                <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Medicine' img={require('../../../assets/drug.png')} />
-                <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Injection' img={require('../../../assets/injection.png')} />
-                <Information OnPress={this._toastWithDurationGravityOffsetHandler} tittle='Corona' img={require('../../../assets/corona.png')} />
+                <Information OnPress={()=>this.handlePress("https://hellosehat.com/hidup-sehat/tips-sehat/daftar-nomor-telepon-darurat/")} tittle='Telepon Darurat' img={require('../../../assets/phone.png')} />
+                <Information OnPress={()=>this.handlePress("https://www.alodokter.com/obat-a-z")} tittle='Obat' img={require('../../../assets/drug.png')} />
+                <Information OnPress={()=>this.handlePress("https://www.alodokter.com/virus")} tittle='Virus' img={require('../../../assets/corona.png')} />
               </ScrollView>
             </View>
             <View style={{ marginVertical: 15 }}>
@@ -82,10 +94,9 @@ class Landing extends Component {
               <Text style={{ color: '#0B206A', fontSize: 18, paddingTop: '5%', fontWeight: 'bold' }} >Healty Guide</Text>
             </View>
             <View>
-              <Banner OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Attention" desc="Stop the spread! #StayatHome" img={require('../../../assets/corona_banner.jpg')} />
-              <Banner OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Mark the Calendar" desc="Dont worry, just scan and mark" img={require('../../../assets/cal_banner.jpg')} />
-              <Banner OnPress={this._toastWithDurationGravityOffsetHandler} tittle="Attention" desc="Quarantime During Covid-19!" img={require('../../../assets/banner1.jpg')} />
-
+              <Banner OnPress={() => this.handlePress("https://health.detik.com/berita-detikhealth/d-4304508/apa-yang-terjadi-kalau-lupa-minum-antibiotik")} tittle="Bahaya Lupa Meminum Obat" desc="detik.com" img={require('../../../assets/cal_banner.jpg')} />
+              <Banner OnPress={() => this.handlePress("https://www.halodoc.com/kesehatan/coronavirus")} tittle="Pelajari Covid-19" desc="halodoc.com" img={require('../../../assets/banner1.jpg')} />
+              <Banner OnPress={() => this.handlePress("https://www.covid19.go.id")} tittle="Cegah penularan Covid-19" desc="covid19.go.id" img={require('../../../assets/corona_banner.jpg')} />
             </View>
           </View>
         </ScrollView>
