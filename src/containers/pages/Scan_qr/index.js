@@ -32,7 +32,7 @@ export default function Scan_qr() {
     return <Text>No access to camera</Text>;
   }
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, paddingTop: 32}}>
       <View style={{ flex: 1, width: '100%' }}>
         <BarCodeScanner
           onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
