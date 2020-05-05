@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "HelloWorld",
+    "name": "CoHealth",
     "slug": "Co_Health",
     "platforms": [
       "ios",
@@ -9,7 +9,7 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/co_healt.png",
     "splash": {
       "image": "./assets/co_healt.png",
       "resizeMode": "contain",
