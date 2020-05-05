@@ -21,7 +21,7 @@ function PreStackScreen() {
 }
 function HomeStackScreen() {
   return (
-    <HomeStack.Navigator screenOptions={{ gestureEnabled: false }} >
+    <HomeStack.Navigator screenOptions={{ gestureEnabled: false }} screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="Landing" component={Landing} headerMode='none' screenOptions={{ headerShown: false, gestureEnabled: false }} />
       <HomeStack.Screen name="Scan_qr" component={Scan_qr} />
     </HomeStack.Navigator>
