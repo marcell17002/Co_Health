@@ -99,10 +99,10 @@ const styles = StyleSheet.create({
     padding: 22,
   },
   calenderContainer: {
-    marginTop: 30,
     width: 350,
     height: 350,
     alignSelf: 'center',
+    marginBottom: 24
   },
   newTask: {
     alignSelf: 'center',
@@ -119,7 +119,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
     backgroundColor: '#eaeef7',
   },
 });
@@ -318,7 +317,9 @@ export default class CreateTask extends Component {
     } = this;
     // console.log(this.props.route)
     return (
-      <Context.Consumer>
+      <Context.Consumer style={{
+        marginTop: 0,
+      }}>
         {value => (
           <>
             <DateTimePicker
@@ -326,6 +327,9 @@ export default class CreateTask extends Component {
               onConfirm={this._handleDatePicked}
               onCancel={this._hideDateTimePicker}
               mode="time"
+              style={{
+                marginTop: -20,
+              }}
             />
 
             <View style={styles.container}>
