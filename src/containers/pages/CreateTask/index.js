@@ -282,7 +282,7 @@ export default class CreateTask extends Component {
 
     await value.updateTodo(creatTodo);
     await updateCurrentTask(currentDate);
-    navigation.navigate('Calendar');
+    navigation.navigate('Pengingat');
     console.log('Navigate to calendar');
   };
 

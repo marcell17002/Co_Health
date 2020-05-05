@@ -31,8 +31,8 @@ function HomeStackScreen() {
 function CalendarStackScreen() {
   return (
     <CalendarStack.Navigator screenOptions={{ gestureEnabled: false }} >
-      <CalendarStack.Screen name="Calendar" component={Calendara} />
-      <CalendarStack.Screen name="CreateTask" component={CreateTask} />
+      <CalendarStack.Screen name="Pengingat" component={Calendara} />
+      <CalendarStack.Screen name="Tambah Pengingat" component={CreateTask} />
     </CalendarStack.Navigator>
   );
 }

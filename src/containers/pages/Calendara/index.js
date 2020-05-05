@@ -359,24 +359,24 @@ class Calendara extends Component {
       sourceId:
         Platform.OS === 'ios'
           ? calendars.find(cal => cal.source && cal.source.name === 'Default')
-              .source.id
+            .source.id
           : undefined,
       source:
         Platform.OS === 'android'
           ? {
-              name: calendars.find(
-                cal => cal.accessLevel === Calendar.CalendarAccessLevel.OWNER
-              ).source.name,
-              isLocalAccount: true,
-            }
+            name: calendars.find(
+              cal => cal.accessLevel === Calendar.CalendarAccessLevel.OWNER
+            ).source.name,
+            isLocalAccount: true,
+          }
           : undefined,
       name: 'test',
       accessLevel: Calendar.CalendarAccessLevel.OWNER,
       ownerAccount:
         Platform.OS === 'android'
           ? calendars.find(
-              cal => cal.accessLevel === Calendar.CalendarAccessLevel.OWNER
-            ).ownerAccount
+            cal => cal.accessLevel === Calendar.CalendarAccessLevel.OWNER
+          ).ownerAccount
           : undefined,
     };
 
@@ -406,7 +406,7 @@ class Calendara extends Component {
     } = this;
     const { navigate } = this.props.navigation;
     return (
-      
+
       <Context.Consumer>
         {value => (
           <>
@@ -659,7 +659,7 @@ class Calendara extends Component {
               />
               <TouchableOpacity
                 onPress={() =>
-                  navigation.navigate('CreateTask', {
+                  navigation.navigate('Tambah Pengingat', {
                     updateCurrentTask: this._updateCurrentTask,
                     currentDate,
                     createNewCalendar: this._createNewCalendar,
@@ -772,16 +772,13 @@ class Calendara extends Component {
                     </TouchableOpacity>
                   ))}
                 </ScrollView>
-              
-                
               </View>
             </View>
-            <View style={{height:54,backgroundColor:'#ffff',flexDirection:'row'}}>
-                <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/home-pasif.png')}/>
-                <Navbar OnPress={() => navigate('CalendarStackScreen',{screen:'Calendar'})} tittle='Calendar' img={require('../../../assets/icon-orders-active.png')}/>
-                <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile'})} tittle='Profile' img={require('../../../assets/profil-pasif.png')}/>
+            <View style={{ height: 54, backgroundColor: '#ffff', flexDirection: 'row' }}>
+              <Navbar OnPress={() => navigate('HomeStackScreen', { screen: 'Landing' })} tittle='Home' img={require('../../../assets/home-pasif.png')} />
+              <Navbar OnPress={() => navigate('CalendarStackScreen', { screen: 'Pengingat' })} tittle='Pengingat' img={require('../../../assets/icon-orders-active.png')} />
+              <Navbar OnPress={() => navigate('ProfileStackScreen', { screen: 'Profile' })} tittle='Profile' img={require('../../../assets/profil-pasif.png')} />
             </View>
-            
           </>
         )}
       </Context.Consumer>
