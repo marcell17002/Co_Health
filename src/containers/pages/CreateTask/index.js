@@ -382,48 +382,22 @@ export default class CreateTask extends Component {
                       style={styles.title}
                       onChangeText={text => this.setState({ taskText: text })}
                       value={taskText}
-                      placeholder="What do you need to do?"
+                      placeholder="Obat yang kamu akan konsumsi"
                     />
-                    <Text
-                      style={{
-                        fontSize: 14,
-                        color: '#BDC6D8',
-                        marginVertical: 10,
-                      }}
-                    >
-                      Suggestion
-                    </Text>
-                    <View style={{ flexDirection: 'row' }}>
-                      <View style={styles.readBook}>
-                        <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                          Read book
-                        </Text>
-                      </View>
-                      <View style={styles.design}>
-                        <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                          Design
-                        </Text>
-                      </View>
-                      <View style={styles.learn}>
-                        <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                          Learn
-                        </Text>
-                      </View>
-                    </View>
                     <View style={styles.notesContent} />
                     <View>
-                      <Text style={styles.notes}>Notes</Text>
+                      <Text style={styles.notes}>Catatan</Text>
                       <TextInput
                         style={{
                           height: 25,
-                          fontSize: 19,
+                          fontSize: 15,
                           marginTop: 3,
                         }}
                         onChangeText={text =>
                           this.setState({ notesText: text })
                         }
                         value={notesText}
-                        placeholder="Enter notes about the task."
+                        placeholder="Masukan catatan yang perlu kamu ingat"
                       />
                     </View>
                     <View style={styles.seperator} />
@@ -435,7 +409,7 @@ export default class CreateTask extends Component {
                           fontWeight: '600',
                         }}
                       >
-                        Times
+                        Waktu
                       </Text>
                       <TouchableOpacity
                         onPress={() => this._showDateTimePicker()}
@@ -465,7 +439,7 @@ export default class CreateTask extends Component {
                             fontWeight: '600',
                           }}
                         >
-                          Alarm
+                          Waktu Pengingat
                         </Text>
                         <View
                           style={{
