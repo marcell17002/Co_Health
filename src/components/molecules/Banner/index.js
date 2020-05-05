@@ -3,9 +3,9 @@ import {View, Image, Text} from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 const Menu = (props) =>{
     return(
-        <View style={{flex:1,alignItems:'center',marginHorizontal:10}}>
+        <View style={{flex:1,alignItems:'center',marginHorizontal:5}}>
             <TouchableOpacity onPress={props.OnPress}>
-                <View style={{marginHorizontal:16,marginTop:'5%',marginBottom:'5%',backgroundColor:'#E9EDFB',borderRadius:10}}>
+                <View style={{marginHorizontal:5,marginTop:'5%',marginBottom:'5%',backgroundColor:'#ffff',borderRadius:10}}>
                     <View style={{borderRadius:14,marginTop:10}}>
                         <Image style={{width:360,height:200,resizeMode:'contain',flex:1,borderRadius:4}} source={props.img} />      
                     </View>
