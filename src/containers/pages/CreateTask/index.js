@@ -18,7 +18,7 @@ import * as Calendar from 'expo-calendar';
 import * as Localization from 'expo-localization';
 import Constants from 'expo-constants';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import uuid from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { Context } from '../../../data/Context';
 
 const { width: vw } = Dimensions.get('window');
@@ -185,8 +185,8 @@ export default class CreateTask extends Component {
   };
 
   synchronizeCalendar = async value => {
-    const { navigation } = this.props;
-    const { createNewCalendar } = navigation.state.params;
+    const route = this.props.route;
+    const { createNewCalendar } = route.params;
     const calendarId = await createNewCalendar();
     try {
       const createEventAsyncRes = await this._addEventsToCalendar(calendarId);
@@ -243,9 +243,9 @@ export default class CreateTask extends Component {
         alarmTime,
         createEventAsyncRes,
       },
-      props: { navigation },
     } = this;
-    const { updateCurrentTask, currentDate } = navigation.state.params;
+    const route = this.props.route;
+    const { updateCurrentTask, currentDate } = route.params;
     const creatTodo = {
       key: uuid(),
       date: `${moment(currentDay).format('YYYY')}-${moment(currentDay).format(
@@ -282,7 +282,8 @@ export default class CreateTask extends Component {
 
     await value.updateTodo(creatTodo);
     await updateCurrentTask(currentDate);
-    navigation.navigate('Home');
+    navigation.navigate('Calendar');
+    console.log('Navigate to calendar');
   };
 
   _handleDatePicked = date => {
@@ -313,9 +314,9 @@ export default class CreateTask extends Component {
         alarmTime,
         isDateTimePickerVisible,
       },
-      props: { navigation },
+      props: { navigation, route }
     } = this;
-
+    // console.log(this.props.route)
     return (
       <Context.Consumer>
         {value => (
@@ -483,37 +484,37 @@ export default class CreateTask extends Component {
                       />
                     </View>
                   </View>
-                  <View style={{marginBottom:'10%'}}>
-                  <TouchableOpacity
-                    disabled={taskText === ''}
-                    style={[
-                      styles.createTaskButton,
-                      {
-                        backgroundColor:
-                          taskText === ''
-                            ? 'rgba(46, 102, 231,0.5)'
-                            : '#2E66E7',
-                      },
-                    ]}
-                    onPress={async () => {
-                      if (isAlarmSet) {
-                        await this.synchronizeCalendar(value);
-                      }
-                      if (!isAlarmSet) {
-                        this._handleCreateEventData(value);
-                      }
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: 18,
-                        textAlign: 'center',
-                        color: '#fff',
+                  <View style={{ marginBottom: '10%' }}>
+                    <TouchableOpacity
+                      disabled={taskText === ''}
+                      style={[
+                        styles.createTaskButton,
+                        {
+                          backgroundColor:
+                            taskText === ''
+                              ? 'rgba(46, 102, 231,0.5)'
+                              : '#2E66E7',
+                        },
+                      ]}
+                      onPress={async () => {
+                        if (isAlarmSet) {
+                          await this.synchronizeCalendar(value);
+                        }
+                        if (!isAlarmSet) {
+                          this._handleCreateEventData(value);
+                        }
                       }}
                     >
-                      ADD YOUR TASK
+                      <Text
+                        style={{
+                          fontSize: 18,
+                          textAlign: 'center',
+                          color: '#fff',
+                        }}
+                      >
+                        ADD YOUR TASK
                     </Text>
-                  </TouchableOpacity>
+                    </TouchableOpacity>
                   </View>
                 </ScrollView>
               </View>
