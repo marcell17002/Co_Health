@@ -429,34 +429,8 @@ class Calendara extends Component {
                       });
                     }}
                     value={selectedTask.title}
-                    placeholder="What do you need to do?"
+                    placeholder="Obat yang kamu akan konsumsi"
                   />
-                  <Text
-                    style={{
-                      fontSize: 14,
-                      color: '#BDC6D8',
-                      marginVertical: 10,
-                    }}
-                  >
-                    Suggestion
-                  </Text>
-                  <View style={{ flexDirection: 'row' }}>
-                    <View style={styles.readBook}>
-                      <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                        Read book
-                      </Text>
-                    </View>
-                    <View style={styles.design}>
-                      <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                        Design
-                      </Text>
-                    </View>
-                    <View style={styles.learn}>
-                      <Text style={{ textAlign: 'center', fontSize: 14 }}>
-                        Learn
-                      </Text>
-                    </View>
-                  </View>
                   <View style={styles.notesContent} />
                   <View>
                     <Text
@@ -471,7 +445,7 @@ class Calendara extends Component {
                     <TextInput
                       style={{
                         height: 25,
-                        fontSize: 19,
+                        fontSize: 15,
                         marginTop: 3,
                       }}
                       onChangeText={text => {
@@ -482,7 +456,7 @@ class Calendara extends Component {
                         });
                       }}
                       value={selectedTask.notes}
-                      placeholder="Enter notes about the task."
+                      placeholder="Masukan catatan yang perlu kamu ingat"
                     />
                   </View>
                   <View style={styles.sepeerator} />
@@ -494,7 +468,7 @@ class Calendara extends Component {
                         fontWeight: '600',
                       }}
                     >
-                      Times
+                      Waktu
                     </Text>
                     <TouchableOpacity
                       onPress={() => this._showDateTimePicker()}
@@ -524,7 +498,7 @@ class Calendara extends Component {
                           fontWeight: '600',
                         }}
                       >
-                        Alarm
+                        Pengingat
                       </Text>
                       <View
                         style={{
